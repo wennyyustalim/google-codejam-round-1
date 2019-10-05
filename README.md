@@ -15,7 +15,7 @@ $ g++ -o bin/<program_name> <file_name>.cpp -std=c++11
 To run program with default test cases:
 
 ```
-$ ./bin/<program_name> <program_name>.in
+$ ./bin/<program_name> < <program_name>.in
 ```
 
 ## Example
