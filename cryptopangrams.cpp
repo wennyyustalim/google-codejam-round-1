@@ -6,7 +6,7 @@ long gcd(long a, long b) {
     return gcd(b, a % b);
 }
 
-long findInSet (long num, set<long> alphabet_map) {
+long findInSet (long num, set<long>& alphabet_map) {
     set<long>::iterator it;
     it = find (alphabet_map.begin(), alphabet_map.end(), num);
     if (it != alphabet_map.end()) {
@@ -16,6 +16,8 @@ long findInSet (long num, set<long> alphabet_map) {
     }
 }
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     long n;
     cin >> n;
     for (long i = 0; i < n; i++) {
@@ -30,17 +32,17 @@ int main() {
             products.push_back(product);
         }
         vector<long> gcds;
+        gcds.push_back(products[0]/gcd(products[0], products[1]));
         for (long j = 0; j < products.size()-1; j++) {
             gcds.push_back(gcd(products[j], products[j+1]));
         }
-        gcds.insert(gcds.begin(), products[0]/gcds[0]);
         gcds.push_back(products[products.size()-1]/gcds[gcds.size()-1]);
         set<long> alphabet_map(gcds.begin(), gcds.end());
         for (long gcd : gcds) {
             char c = findInSet(gcd, alphabet_map) + 65;
             cout << c;
         }
-        cout << endl;
+        cout << "\n";
     }
     return 0;
 }

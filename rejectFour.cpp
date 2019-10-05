@@ -10,10 +10,12 @@ void printPairs(string& a_str) {
         }
     }
     b_str.erase(0, b_str.find_first_not_of('0'));
-    cout << a_str << " " << b_str << endl;
+    cout << a_str << " " << b_str << "\n";
 }
 
 int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
